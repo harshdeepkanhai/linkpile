@@ -1,0 +1,25 @@
+Linkpile
+========
+
+Linkpile is a small social bookmarking site. Keep your bookmarks
+on the web instead of in one browser, tag them with simple words,
+and see what other people are saving.
+
+Requirements
+------------
+
+  * Apache 1.3 or 2.0
+  * PHP 4.3 or newer (PHP 5 works too)
+  * MySQL 4.0 or newer
+
+Quick start
+-----------
+
+  1. Create a database and load sql/schema.sql into it:
+
+       mysqladmin create bookmarks
+       mysql bookmarks < sql/schema.sql
+
+  2. Copy config.php.dist to config.php and edit the values.
+
+  3. Point your web server at this directory and open index.php.

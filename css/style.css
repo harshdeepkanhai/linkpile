@@ -1,0 +1,107 @@
+/* linkpile stylesheet */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #e8e8e8;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #333333;
+}
+
+td, input, textarea {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+a { color: #0033cc; }
+a:visited { color: #663399; }
+a:hover { color: #cc0000; }
+
+#page {
+    background: #ffffff;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+}
+
+#header {
+    background: #336699;
+    color: #ffffff;
+    padding: 10px 15px;
+}
+
+#header h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+}
+
+#header h1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#nav {
+    margin-top: 5px;
+}
+
+#nav a { color: #ffcc66; }
+
+#content {
+    padding: 15px;
+    vertical-align: top;
+}
+
+#footer {
+    border-top: 1px solid #cccccc;
+    padding: 8px 15px;
+    color: #999999;
+    font-size: 10px;
+    text-align: center;
+}
+
+h2 {
+    margin: 0 0 12px 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: normal;
+    color: #336699;
+}
+
+h3 {
+    margin: 15px 0 6px 0;
+    font-size: 12px;
+}
+
+p { line-height: 1.5; }
+
+/* the yellow message at the top */
+.msg {
+    background: #ffffcc;
+    border: 1px solid #e6db55;
+    padding: 6px 10px;
+}
+
+.error {
+    background: #ffeeee;
+    border: 1px solid #cc0000;
+    color: #cc0000;
+    padding: 6px 10px;
+}
+
+.intro {
+    background: #eef3f8;
+    border: 1px solid #c5d5e5;
+    padding: 8px 10px;
+}
+
+.small {
+    font-size: 10px;
+    color: #666666;
+}
+
+.empty {
+    color: #999999;
+    font-style: italic;
+}

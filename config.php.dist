@@ -1,0 +1,14 @@
+<?php
+// linkpile config
+// copy this file to config.php and change the values
+
+$db_host = "localhost";
+$db_user = "bookmarks";
+$db_pass = "secret";
+$db_name = "bookmarks";
+
+$site_name = "Linkpile";
+
+// address of this folder, NO slash at the end
+$base_url = "http://localhost/bookmarks";
+?>
