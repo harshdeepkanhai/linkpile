@@ -35,7 +35,7 @@ if (isset($_POST['url'])) {
             mysql_query("INSERT INTO tags (bookmark_id, tag) VALUES ($id, '" . addslashes($t[$i]) . "')") or die(mysql_error());
         }
 
-        header("Location: index.php");
+        header("Location: user.php?name=" . urlencode($_SESSION['uname']));
         exit;
     }
 }

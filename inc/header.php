@@ -19,6 +19,7 @@ if (!isset($title)) $title = "";
       <a href="index.php">home</a> |
 <?php if (logged_in()) { ?>
       <a href="post.php">post</a> |
+      <a href="user.php?name=<?php echo urlencode($_SESSION['uname']); ?>">my bookmarks</a> |
       logged in as <b><?php echo html($_SESSION['uname']); ?></b> |
       <a href="logout.php">log out</a>
 <?php } else { ?>

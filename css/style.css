@@ -132,3 +132,26 @@ p { line-height: 1.5; }
 .meta a { color: #669933; }
 
 textarea { width: 400px; }
+
+/* user and tag pages: list on the left, tags on the right */
+
+#main {
+    float: left;
+    width: 520px;
+    margin-left: 5px;
+}
+
+#sidebar {
+    margin-left: 545px;
+    padding: 8px;
+    background: #f5f5f5;
+    border: 1px solid #dddddd;
+    line-height: 1.6;
+}
+
+#sidebar h3 { margin-top: 0; }
+
+.count {
+    font-size: 9px;
+    color: #999999;
+}

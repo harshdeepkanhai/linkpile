@@ -18,11 +18,11 @@ while ($row = mysql_fetch_array($res)) {
     if (mysql_num_rows($res2) > 0) {
         echo "to ";
         while ($row2 = mysql_fetch_array($res2)) {
-            echo html($row2['tag']) . " ";
+            echo "<a href=\"tag.php?tag=" . urlencode($row2['tag']) . "\">" . html($row2['tag']) . "</a> ";
         }
     }
 
-    echo "by " . html($row['username']);
+    echo "by <a href=\"user.php?name=" . urlencode($row['username']) . "\">" . html($row['username']) . "</a>";
     echo " on " . nice_date($row['created']);
     echo "</div>\n";
     echo "</div>\n";
