@@ -13,6 +13,29 @@ $bm_title = "";
 $notes = "";
 $tags = "";
 
+// are we editing one?
+$id = 0;
+if (isset($_REQUEST['id'])) $id = intval($_REQUEST['id']);
+if ($id > 0) {
+    $q = "SELECT * FROM bookmarks WHERE id = $id AND user_id = " . $_SESSION['uid'];
+    $res = mysql_query($q) or die(mysql_error());
+    $row = mysql_fetch_array($res);
+    if (!$row) {
+        $_SESSION['msg'] = "You can only edit your own bookmarks.";
+        header("Location: index.php");
+        exit;
+    }
+    $url = $row['url'];
+    $bm_title = $row['title'];
+    $notes = $row['notes'];
+
+    $res = mysql_query("SELECT tag FROM tags WHERE bookmark_id = $id ORDER BY tag") or die(mysql_error());
+    while ($row = mysql_fetch_array($res)) {
+        $tags .= $row['tag'] . " ";
+    }
+    $tags = trim($tags);
+}
+
 if (isset($_POST['url'])) {
     $url = clean($_POST['url']);
     $bm_title = clean($_POST['title']);
@@ -25,10 +48,18 @@ if (isset($_POST['url'])) {
     if ($bm_title == "") $bm_title = $url;
 
     if ($error == "") {
-        $q = "INSERT INTO bookmarks (user_id, url, title, notes, created) VALUES (" . $_SESSION['uid'] . ", '" . addslashes($url) . "', '" . addslashes($bm_title) . "', '" . addslashes($notes) . "', NOW())";
-        mysql_query($q) or die(mysql_error());
-        $id = mysql_insert_id();
-        $_SESSION['msg'] = "Bookmark saved.";
+        if ($id > 0) {
+            $q = "UPDATE bookmarks SET url = '" . addslashes($url) . "', title = '" . addslashes($bm_title) . "', notes = '" . addslashes($notes) . "' WHERE id = $id";
+            mysql_query($q) or die(mysql_error());
+            // easier to throw all the old tags away and put them back in
+            mysql_query("DELETE FROM tags WHERE bookmark_id = $id") or die(mysql_error());
+            $_SESSION['msg'] = "Bookmark updated.";
+        } else {
+            $q = "INSERT INTO bookmarks (user_id, url, title, notes, created) VALUES (" . $_SESSION['uid'] . ", '" . addslashes($url) . "', '" . addslashes($bm_title) . "', '" . addslashes($notes) . "', NOW())";
+            mysql_query($q) or die(mysql_error());
+            $id = mysql_insert_id();
+            $_SESSION['msg'] = "Bookmark saved.";
+        }
 
         $t = split_tags($tags);
         for ($i = 0; $i < count($t); $i++) {
@@ -40,7 +71,11 @@ if (isset($_POST['url'])) {
     }
 }
 
-$title = "Post a bookmark";
+if ($id > 0) {
+    $title = "Edit bookmark";
+} else {
+    $title = "Post a bookmark";
+}
 include("inc/header.php");
 ?>
 
@@ -49,6 +84,7 @@ include("inc/header.php");
 <?php if ($error != "") echo "<p class=\"error\">$error</p>\n"; ?>
 
 <form method="post" action="post.php">
+<input type="hidden" name="id" value="<?php echo $id; ?>" />
 <table border="0" cellspacing="0" cellpadding="4">
 <tr>
   <td align="right"><b>URL:</b></td>

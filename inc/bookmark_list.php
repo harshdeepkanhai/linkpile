@@ -24,6 +24,12 @@ while ($row = mysql_fetch_array($res)) {
 
     echo "by <a href=\"user.php?name=" . urlencode($row['username']) . "\">" . html($row['username']) . "</a>";
     echo " on " . nice_date($row['created']);
+
+    // only show these on your own bookmarks
+    if (logged_in() && $_SESSION['uid'] == $row['user_id']) {
+        echo " | <a href=\"post.php?id=" . $row['id'] . "\">edit</a>";
+        echo " | <a href=\"delete.php?id=" . $row['id'] . "\">delete</a>";
+    }
     echo "</div>\n";
     echo "</div>\n";
 }
