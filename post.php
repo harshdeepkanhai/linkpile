@@ -113,7 +113,8 @@ include("inc/header.php");
 </tr>
 <tr>
   <td align="right" valign="top"><b>Tags:</b></td>
-  <td><input type="text" name="tags" size="60" value="<?php echo html($tags); ?>" /><br />
+  <td><input type="text" name="tags" id="tags" size="60" value="<?php echo html($tags); ?>" onkeyup="suggestTags()" /><br />
+  <div id="suggest"></div>
   <font size="1" color="#666666">separated by spaces</font></td>
 </tr>
 <tr>
@@ -122,6 +123,12 @@ include("inc/header.php");
 </tr>
 </table>
 </form>
+
+<script type="text/javascript" src="js/suggest.js"></script>
+<script type="text/javascript">
+// stops the browser showing its own list on top of ours
+document.getElementById("tags").setAttribute("autocomplete", "off");
+</script>
 
 <p class="small">Tip: get the <a href="bookmarklet.php">bookmarklet</a> and post
 from any page with one click.</p>
