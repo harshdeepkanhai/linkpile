@@ -4,6 +4,7 @@ include("inc/init.php");
 $q = "SELECT b.*, u.username FROM bookmarks b, users u WHERE b.user_id = u.id ORDER BY b.created DESC, b.id DESC LIMIT 25";
 $res = mysql_query($q) or die(mysql_error());
 
+$rss = $base_url . "/rss.php";
 include("inc/header.php");
 ?>
 
@@ -15,7 +16,7 @@ other people are saving.
 </p>
 <?php } ?>
 
-<h2>Recently saved</h2>
+<h2>Recently saved <a class="rss" href="rss.php">RSS</a></h2>
 
 <?php include("inc/bookmark_list.php"); ?>
 

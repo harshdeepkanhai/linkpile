@@ -31,12 +31,16 @@ $tres = mysql_query("SELECT t.tag, COUNT(*) AS num FROM tags t, bookmarks b WHER
 
 $link = "user.php?name=" . urlencode($user['username']);
 
+$rss = $base_url . "/rss.php?user=" . urlencode($user['username']);
+if ($tag != "") $rss .= "&tag=" . urlencode($tag);
+
 $title = $user['username'];
 if ($tag != "") $title .= " / " . $tag;
 include("inc/header.php");
 ?>
 
 <h2><a href="<?php echo $link; ?>"><?php echo html($user['username']); ?></a><?php if ($tag != "") echo " / " . html($tag); ?>
+<a class="rss" href="<?php echo html($rss); ?>">RSS</a>
 </h2>
 
 <div id="main">

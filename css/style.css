@@ -155,3 +155,15 @@ textarea { width: 400px; }
     font-size: 9px;
     color: #999999;
 }
+
+/* the orange rss button */
+a.rss, a.rss:visited {
+    background: #ff6600;
+    color: #ffffff;
+    border: 1px solid #993300;
+    padding: 0 3px;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 9px;
+    font-weight: bold;
+    text-decoration: none;
+}

@@ -8,6 +8,9 @@ if (!isset($title)) $title = "";
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title><?php if ($title != "") echo html($title) . " - "; echo html($site_name); ?></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<?php if (isset($rss)) { ?>
+<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo html($rss); ?>" />
+<?php } ?>
 </head>
 <body>
 

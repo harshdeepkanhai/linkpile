@@ -17,11 +17,14 @@ $res = mysql_query($q) or die(mysql_error());
 $q = "SELECT t2.tag, COUNT(*) AS num FROM tags t1, tags t2 WHERE t1.bookmark_id = t2.bookmark_id AND t1.tag = '$stag' AND t2.tag != '$stag' GROUP BY t2.tag ORDER BY num DESC, t2.tag LIMIT 20";
 $tres = mysql_query($q) or die(mysql_error());
 
+$rss = $base_url . "/rss.php?tag=" . urlencode($tag);
+
 $title = "Tagged " . $tag;
 include("inc/header.php");
 ?>
 
 <h2>Bookmarks tagged <i><?php echo html($tag); ?></i>
+<a class="rss" href="<?php echo html($rss); ?>">RSS</a>
 </h2>
 
 <div id="main">
