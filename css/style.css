@@ -167,3 +167,11 @@ a.rss, a.rss:visited {
     font-weight: bold;
     text-decoration: none;
 }
+
+.bookmarklet a {
+    background: #eeeeee;
+    border: 1px solid #999999;
+    padding: 3px 8px;
+    font-weight: bold;
+    text-decoration: none;
+}

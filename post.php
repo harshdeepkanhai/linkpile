@@ -13,6 +13,14 @@ $bm_title = "";
 $notes = "";
 $tags = "";
 
+// the bookmarklet sends us the address and title of the page
+if (isset($_GET['url'])) $url = clean($_GET['url']);
+if (isset($_GET['title'])) $bm_title = clean($_GET['title']);
+
+// jump=yes means go back to that page after saving
+$jump = "";
+if (isset($_REQUEST['jump'])) $jump = clean($_REQUEST['jump']);
+
 // are we editing one?
 $id = 0;
 if (isset($_REQUEST['id'])) $id = intval($_REQUEST['id']);
@@ -66,6 +74,10 @@ if (isset($_POST['url'])) {
             mysql_query("INSERT INTO tags (bookmark_id, tag) VALUES ($id, '" . addslashes($t[$i]) . "')") or die(mysql_error());
         }
 
+        if ($jump == "yes") {
+            header("Location: $url");
+            exit;
+        }
         header("Location: user.php?name=" . urlencode($_SESSION['uname']));
         exit;
     }
@@ -85,6 +97,7 @@ include("inc/header.php");
 
 <form method="post" action="post.php">
 <input type="hidden" name="id" value="<?php echo $id; ?>" />
+<input type="hidden" name="jump" value="<?php echo html($jump); ?>" />
 <table border="0" cellspacing="0" cellpadding="4">
 <tr>
   <td align="right"><b>URL:</b></td>
@@ -109,5 +122,8 @@ include("inc/header.php");
 </tr>
 </table>
 </form>
+
+<p class="small">Tip: get the <a href="bookmarklet.php">bookmarklet</a> and post
+from any page with one click.</p>
 
 <?php include("inc/footer.php"); ?>
