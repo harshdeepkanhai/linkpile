@@ -1,6 +1,9 @@
 <?php
 include("inc/init.php");
 
+$q = "SELECT b.*, u.username FROM bookmarks b, users u WHERE b.user_id = u.id ORDER BY b.created DESC, b.id DESC LIMIT 25";
+$res = mysql_query($q) or die(mysql_error());
+
 include("inc/header.php");
 ?>
 
@@ -12,8 +15,8 @@ other people are saving.
 </p>
 <?php } ?>
 
-<h2>Welcome</h2>
+<h2>Recently saved</h2>
 
-<p>There is not much to see here yet. Saving bookmarks is coming soon!</p>
+<?php include("inc/bookmark_list.php"); ?>
 
 <?php include("inc/footer.php"); ?>

@@ -18,6 +18,7 @@ if (!isset($title)) $title = "";
     <div id="nav">
       <a href="index.php">home</a> |
 <?php if (logged_in()) { ?>
+      <a href="post.php">post</a> |
       logged in as <b><?php echo html($_SESSION['uname']); ?></b> |
       <a href="logout.php">log out</a>
 <?php } else { ?>

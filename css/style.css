@@ -105,3 +105,30 @@ p { line-height: 1.5; }
     color: #999999;
     font-style: italic;
 }
+
+/* bookmarks */
+
+.bm {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dotted #cccccc;
+}
+
+.bmtitle {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.notes {
+    margin: 3px 0;
+    color: #555555;
+}
+
+.meta {
+    font-size: 10px;
+    color: #999999;
+}
+
+.meta a { color: #669933; }
+
+textarea { width: 400px; }

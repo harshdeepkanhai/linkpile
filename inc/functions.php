@@ -29,4 +29,20 @@ function nice_date($d)
 {
     return date("M j, Y", strtotime($d));
 }
+
+// turns "php mysql, web" into an array of tags
+function split_tags($str)
+{
+    $str = strtolower(str_replace(",", " ", $str));
+    $tmp = explode(" ", $str);
+    $tags = array();
+    for ($i = 0; $i < count($tmp); $i++) {
+        $t = ereg_replace("[^a-z0-9_.+#-]", "", $tmp[$i]);
+        $t = substr($t, 0, 64);
+        if ($t != "" && !in_array($t, $tags)) {
+            $tags[] = $t;
+        }
+    }
+    return $tags;
+}
 ?>
