@@ -20,6 +20,8 @@ if (!isset($title)) $title = "";
     <h1><a href="index.php"><?php echo html($site_name); ?></a></h1>
     <div id="nav">
       <a href="index.php">home</a> |
+      <a href="cloud.php">tags</a> |
+      <a href="popular.php">popular</a> |
 <?php if (logged_in()) { ?>
       <a href="post.php">post</a> |
       <a href="user.php?name=<?php echo urlencode($_SESSION['uname']); ?>">my bookmarks</a> |

@@ -175,3 +175,25 @@ a.rss, a.rss:visited {
     font-weight: bold;
     text-decoration: none;
 }
+
+/* tag cloud, the sizes are set in cloud.php */
+#cloud {
+    line-height: 2.2;
+    text-align: center;
+}
+
+#cloud a {
+    margin: 0 4px;
+    text-decoration: none;
+}
+
+#cloud a:hover { text-decoration: underline; }
+
+/* how many people saved it, on the popular page */
+.saves {
+    float: right;
+    background: #336699;
+    color: #ffffff;
+    padding: 2px 6px;
+    font-weight: bold;
+}

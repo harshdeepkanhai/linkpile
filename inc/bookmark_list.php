@@ -7,6 +7,9 @@ if (mysql_num_rows($res) == 0) {
 
 while ($row = mysql_fetch_array($res)) {
     echo "<div class=\"bm\">\n";
+    if (isset($saves)) {
+        echo "<span class=\"saves\">$saves</span>\n";
+    }
     echo "<a class=\"bmtitle\" href=\"" . html($row['url']) . "\">" . html($row['title']) . "</a>\n";
     if ($row['notes'] != "") {
         echo "<div class=\"notes\">" . nl2br(html($row['notes'])) . "</div>\n";
