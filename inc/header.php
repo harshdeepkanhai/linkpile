@@ -22,6 +22,7 @@ if (!isset($title)) $title = "";
       <a href="logout.php">log out</a>
 <?php } else { ?>
       <a href="login.php">log in</a>
+      | <a href="register.php">register</a>
 <?php } ?>
     </div>
   </td>

@@ -8,6 +8,7 @@ include("inc/header.php");
 <p class="intro">Linkpile keeps your bookmarks on the web, so you can reach
 them from any computer. Tag your links with simple words and see what
 other people are saving.
+<a href="register.php">Sign up</a>, it's free.
 </p>
 <?php } ?>
 
