@@ -5,6 +5,16 @@ Linkpile is a small social bookmarking site. Keep your bookmarks
 on the web instead of in one browser, tag them with simple words,
 and see what other people are saving.
 
+Features
+--------
+
+  * Save links with a title, notes and tags (separated by spaces)
+  * A page for every user and every tag, with related tags
+  * RSS 2.0 feeds for users, tags, and users plus tags
+  * A bookmarklet to post the page you are looking at in one click
+  * Tag cloud and a "popular this week" page
+  * Tag suggestions while you type (XMLHttpRequest, no page reload!)
+
 Requirements
 ------------
 
@@ -12,14 +22,26 @@ Requirements
   * PHP 4.3 or newer (PHP 5 works too)
   * MySQL 4.0 or newer
 
-Quick start
------------
+See INSTALL for how to set it up and NEWS for what changed in
+each release.
 
-  1. Create a database and load sql/schema.sql into it:
+Files
+-----
 
-       mysqladmin create bookmarks
-       mysql bookmarks < sql/schema.sql
-
-  2. Copy config.php.dist to config.php and edit the values.
-
-  3. Point your web server at this directory and open index.php.
+  index.php        recent bookmarks
+  post.php         add and edit bookmarks
+  delete.php       delete a bookmark
+  user.php         one user's bookmarks
+  tag.php          everything with one tag
+  cloud.php        the tag cloud
+  popular.php      popular this week
+  rss.php          RSS 2.0 feeds
+  bookmarklet.php  bookmarklet instructions
+  suggest.php      tag suggestions for js/suggest.js
+  register.php,
+  login.php,
+  logout.php       accounts
+  inc/             header, footer and other included files
+  css/             stylesheet
+  js/              JavaScript
+  sql/schema.sql   database tables

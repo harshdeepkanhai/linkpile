@@ -1,0 +1,77 @@
+Installing Linkpile
+===================
+
+You need:
+
+  * A web server that runs PHP, such as Apache 1.3 or 2.0
+    with mod_php.
+  * PHP 4.3 or newer, with the MySQL extension. PHP 5 works too.
+  * MySQL 4.0 or newer.
+
+1. Unpack the files
+-------------------
+
+Put the Linkpile directory somewhere your web server can see it,
+for example /var/www/html/bookmarks.
+
+2. Create the database
+----------------------
+
+Create a database and a MySQL user for Linkpile, then load the
+tables:
+
+    mysqladmin -u root -p create bookmarks
+    mysql -u root -p
+
+    mysql> GRANT ALL ON bookmarks.* TO bookmarks@localhost
+        ->   IDENTIFIED BY 'choose-a-password';
+    mysql> quit
+
+    mysql -u bookmarks -p bookmarks < sql/schema.sql
+
+3. Configure
+------------
+
+Copy the sample configuration and edit it:
+
+    cp config.php.dist config.php
+
+Set $db_name, $db_user and $db_pass to what you chose above, and
+set $base_url to the full address of the Linkpile directory without
+a slash at the end, for example:
+
+    $base_url = "http://www.example.com/bookmarks";
+
+$base_url is used in the RSS feeds and the bookmarklet, so it must
+be the address people use from outside.
+
+4. Try it
+---------
+
+Open $base_url in your browser, register an account and post your
+first bookmark. Then click the "bookmarklet" link on the post page
+to add the one-click posting button to your browser.
+
+Troubleshooting
+---------------
+
+"config.php not found"
+    You skipped step 3.
+
+"Could not connect to mysql"
+    Check $db_host, $db_user and $db_pass in config.php. On many
+    shared hosts $db_host is not "localhost", ask your host.
+
+"Warning: Cannot modify header information - headers already sent"
+    There is a space or an empty line after the ?> at the end of
+    your config.php. Delete it.
+
+Logins do not stick
+    PHP sessions must be working. Check that session.save_path in
+    php.ini points to a directory the web server can write to.
+
+Tag suggestions do not appear
+    They need JavaScript and a browser with XMLHttpRequest: Internet
+    Explorer 5.5 or newer, Mozilla, Firefox, Safari 1.2 or Opera 7.6.
+    Without them the form still works, you just type the tags
+    yourself.

@@ -1,0 +1,32 @@
+Linkpile NEWS
+=============
+
+1.0
+---
+
+  * Tag suggestions while you type in the post form. Your own tags
+    that match the word you are typing show up underneath, with no
+    page reload (uses XMLHttpRequest). Click one to use it.
+  * Fixed the tags box dropping below the bookmark list in Internet
+    Explorer 6 (double margin float bug and the 3 pixel jog).
+  * Added INSTALL and this NEWS file.
+
+0.5
+---
+
+  * RSS 2.0 feeds for recent bookmarks, for every user, for every tag,
+    and for a user's bookmarks with one tag.
+  * Bookmarklet: post the page you are looking at with one click,
+    then jump straight back to it.
+  * Tag cloud of every tag on the site.
+  * "Popular this week" page, showing the links saved by the most
+    people in the last seven days.
+
+0.1
+---
+
+  * First release.
+  * Accounts with registration, login and logout.
+  * Save bookmarks with a title, notes and tags.
+  * Pages for each user and each tag, with related tags.
+  * Edit and delete your own bookmarks.
