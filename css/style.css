@@ -215,3 +215,26 @@ a.rss, a.rss:visited {
     font-size: 11px;
     font-weight: bold;
 }
+
+/*
+   IE6 FIXES
+   the tags box was dropping under the bookmark list in IE6.
+   found the answers on positioniseverything.net
+*/
+
+/* double margin bug: IE doubles margin-left on a left float.
+   display: inline fixes it and other browsers ignore it on floats */
+#main {
+    display: inline;
+}
+
+/* 3 pixel jog: the text next to a float gets pushed over 3px.
+   only IE reads "* html". the backslash hides it from IE5 mac \*/
+* html #sidebar {
+    height: 1%;
+    margin-left: 0;
+}
+* html #main {
+    margin-right: 17px;
+}
+/* end of the hiding */
